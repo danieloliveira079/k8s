@@ -58,7 +58,7 @@ spec:
     matchLabels:
       app: stan
   serviceName: stan
-  replicas: 3
+  replicas: 1
   volumeClaimTemplates:
   - metadata:
       name: stan-sts-vol

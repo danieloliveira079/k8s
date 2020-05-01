@@ -12,7 +12,7 @@ spec:
       app: {{ template "stan.name" . }}
 
   {{- if .Values.store.cluster.enabled }}
-  replicas: 3
+  replicas: 1
   {{- else }}
   replicas: 1
   {{- end }}
