@@ -35,16 +35,16 @@ spec:
       - configMap:
           name: {{ template "stan.name".  }}-config
         name: config-volume
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - {{ template "stan.name" . }}
-            topologyKey: kubernetes.io/hostname
+      # affinity:
+      #   podAntiAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #     - labelSelector:
+      #         matchExpressions:
+      #         - key: app
+      #           operator: In
+      #           values:
+      #           - {{ template "stan.name" . }}
+      #       topologyKey: kubernetes.io/hostname
       containers:
         - name: stan
           image: {{ .Values.stan.image }}
