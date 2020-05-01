@@ -64,16 +64,16 @@ spec:
         app: stan
     spec:
       # Prevent NATS Streaming pods running in same host.
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - topologyKey: "kubernetes.io/hostname"
-            labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - stan
+      # affinity:
+      #   podAntiAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #     - topologyKey: "kubernetes.io/hostname"
+      #       labelSelector:
+      #         matchExpressions:
+      #         - key: app
+      #           operator: In
+      #           values:
+      #           - stan
       # STAN Server
       containers:
       - name: stan
