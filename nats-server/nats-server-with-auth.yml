@@ -74,7 +74,7 @@ spec:
   selector:
     matchLabels:
       app: nats
-  replicas: 3
+  replicas: 1
   serviceName: "nats"
   template:
     metadata:
@@ -104,26 +104,26 @@ spec:
 
       # Initializer container required to be able to lookup
       # the external ip on which this node is running.
-      initContainers:
-      - name: bootconfig
-        command:
-        - nats-pod-bootconfig
-        - -f
-        - /etc/nats-config/advertise/client_advertise.conf
-        - -gf
-        - /etc/nats-config/advertise/gateway_advertise.conf
-        env:
-        - name: KUBERNETES_NODE_NAME
-          valueFrom:
-            fieldRef:
-              apiVersion: v1
-              fieldPath: spec.nodeName
-        image: connecteverything/nats-boot-config:0.5.2
-        imagePullPolicy: IfNotPresent
-        volumeMounts:
-        - mountPath: /etc/nats-config/advertise
-          name: advertiseconfig
-          subPath: advertise
+      # initContainers:
+      # - name: bootconfig
+      #   command:
+      #   - nats-pod-bootconfig
+      #   - -f
+      #   - /etc/nats-config/advertise/client_advertise.conf
+      #   - -gf
+      #   - /etc/nats-config/advertise/gateway_advertise.conf
+      #   env:
+      #   - name: KUBERNETES_NODE_NAME
+      #     valueFrom:
+      #       fieldRef:
+      #         apiVersion: v1
+      #         fieldPath: spec.nodeName
+      #   image: connecteverything/nats-boot-config:0.5.2
+      #   imagePullPolicy: IfNotPresent
+      #   volumeMounts:
+      #   - mountPath: /etc/nats-config/advertise
+      #     name: advertiseconfig
+      #     subPath: advertise
 
       #################
       #               #

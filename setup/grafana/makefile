@@ -1,7 +1,7 @@
 IMAGE := connecteverything/nats-surveyor-grafana
 TAG := 0.1.0
 SURVEYOR_REPO := $(GOPATH)/src/github.com/nats-io/nats-surveyor
-SURVEYOR_DASH := https://raw.githubusercontent.com/nats-io/nats-surveyor/master/docker-compose/grafana/provisioning/dashboards/nats-surveyor-dashboard.json
+SURVEYOR_DASH := https://raw.githubusercontent.com/danieloliveira079/nats-surveyor/master/docker-compose/grafana/provisioning/dashboards/nats-surveyor-dashboard.json
  
 build:
 	$(info Make: Building "$(TAG)" tagged images.)
